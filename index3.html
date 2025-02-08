@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Poppins:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: url('/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            padding: 20px;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+            max-width: 600px;
+            margin: auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: #ff4081;
+            font-size: 42px;
+            font-weight: bold;
+        }
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #333;
+            font-size: 34px;
+            font-weight: bold;
+        }
+        p {
+            font-family: 'Poppins', sans-serif;
+            color: #555;
+            font-size: 18px;
+        }
+        .important {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d63384;
+        }
+        .animated-image {
+            margin-top: 20px;
+        }
+        .countdown {
+            font-size: 22px;
+            font-weight: bold;
+            color: #d63384;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #ff4081;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #e6006b;
+            transform: scale(1.05);
+        }
+        .qr-code {
+            margin-top: 20px;
+        }
+        .qr-code img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>You're Invited to the Wedding of</h1>
+        <h2> SHRUTHI & DHANANJAY</h2>
+        <p class="important"><strong><U>Reception Date   </U>:  </strong> Feb 19, 2025</p>
+        <p class="important"><strong><U>Time   </U>:  </strong> 7:00 PM</p>
+        <p class="important"><strong><U>Wedding Date   </U>:  </strong> Feb 20, 2025</p>
+        <p class="important"><U><strong>Venue     </U>  : </strong> KEB KALYAN MANTAPA MYSURU NR MOHALLA</p>
+        <p class="important"><strong>Time  :  </strong> 10:30 TO 11:30 AM</p>
+        
+        <div class="animated-image">
+            <img src="/phopto.jpg" alt="Animated Bride and Groom" width="100%">
+        </div>
+        
+        <div class="countdown" id="countdown"></div>
+        <a href="https://maps.app.goo.gl/f1tvgvJPt7oLdeh19" class="btn" target="_blank">Open in Google Maps</a>
+        
+        <div class="qr-code">
+            <p>Scan the QR code for directions:</p>
+            <img src="/kalyana mantapa address (1).jpg" alt="QR Code for venue address">
+        </div>
+    </div>
+
+    <script>
+        function countdown() {
+            const weddingDate = new Date("2025-02-20T17:00:00").getTime(); 
+            setInterval(() => {
+                const now = new Date().getTime();
+                const difference = weddingDate - now;
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until the big day!`;
+            }, 1000);
+        }
+        countdown();
+    </script>
+</body>
+</html>
